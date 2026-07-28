@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘嘉雯 - 求职作品集</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="assets/finesse.css">
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: #0b1016;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .home-page {
+            overflow-x: hidden;
+            background: #0b1016 !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        .home-page main {
+            position: relative;
+            z-index: 2;
+        }
+
+        #home-field {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .background-image {
+            min-height: calc(100vh - 60px);
+            width: 100%;
+            padding-top: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            height: 60px;
+            background: #1e1e1eb3;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(85px);
+            z-index: 1000;
+        }
+
+        /* 左侧品牌区域 */
+        .brand-box {
+            position: absolute;
+            left: 5%;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-wrapper {
+            border: 2px solid #B3FCE6B3;
+            /* 外描边 */
+            border-radius: 8px;
+            padding: 2px;
+        }
+
+        .logo {
+            display: block;
+            width: 36px;
+            height: 36px;
+            background: url('assets/头像.jpg') center/cover;
+            /* 替换实际图片 */
+            border-radius: 4px;
+        }
+
+        .brand-text {
+            font-family: Agency FB;
+            font-size: 20px;
+            font-weight: 600;
+            color: #B3FCE6;
+        }
+
+        /* 右侧导航菜单 */
+        .nav-menu {
+            position: absolute;
+            right: 5%;
+            display: flex;
+            gap: 100px;
+            font-family: Alibaba PuHuiTi 3.0;
+        }
+
+        .nav-item {
+            position: relative;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+
+        /* 下划线动画 */
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #B3FCE6;
+            transition: width 0.3s;
+        }
+
+        .nav-item:hover::after,
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        .nav-item:hover {
+            color: #B3FCE6;
+        }
+        .lang-switch {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            padding: 8px 0;
+        }
+        .lang-switch-track {
+            position: relative;
+            width: 60px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 13px;
+            transition: background 0.3s;
+            border: 1px solid rgba(179, 252, 230, 0.3);
+        }
+        .lang-switch-track:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .lang-switch-thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        .lang-switch-track.active .lang-switch-thumb {
+            transform: translateX(34px);
+            background: #B3FCE6;
+        }
+        .lang-switch-track.active {
+            background: rgba(179, 252, 230, 0.2);
+        }
+        .lang-label {
+            font-size: 12px;
+            font-weight: 400;
+            color: #888;
+            transition: color 0.3s;
+            min-width: 24px;
+        }
+        .lang-switch:hover .lang-label {
+            color: #B3FCE6;
+        }
+
+        /* 筛选区域样式 */
+        .filters-container {
+            position: sticky;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            gap: 12px;
+            z-index: 999;
+            flex-wrap: wrap;
+            padding: 16px 5%;
+            margin-bottom: 20px;
+            background: rgba(11, 16, 22, 0.85);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-button {
+            padding: 6px 16px;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(132, 192, 165, 0.2);
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
+            font-family: Alibaba PuHuiTi 3.0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-button:hover {
+            color: #84C0A5;
+            border-color: rgba(132, 192, 165, 0.5);
+        }
+
+        .filter-button.active {
+            color: #B3FCE6;
+            border-color: #84C0A5;
+            background: rgba(132, 192, 165, 0.15);
+            box-shadow: 0 0 10px rgba(132, 192, 165, 0.2);
+        }
+
+        /* 作品展示区域样式 */
+        .works-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: min-content;
+            gap: 32px 16px;
+            padding: 0 5% 32px;
+            margin-top: 0;
+        }
+
+        .work-item {
+            --card-radius: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #1e1e1e;
+            border-radius: var(--card-radius);
+            padding: 0 4px 24px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .work-image {
+            width: 100%;
+            aspect-ratio: 412 / 216;
+            border-radius: var(--card-radius);
+            overflow: hidden;
+        }
+
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .work-item:hover .work-image img {
+            transform: scale(1.05);
+        }
+
+        .work-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 16px;
+            font-family: Alibaba PuHuiTi 3.0;
+        }
+
+        .work-title {
+            margin: 0 5% 8px 5%;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .work-category {
+            margin: 0 5% 24px 5%;
+            color: #888;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .work-status {
+            margin: 0 5% 0 5%;
+            color: #84C0A5;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body class="home-page">
+    <canvas id="home-field" aria-hidden="true"></canvas>
+    <nav>
+            <div class="brand-box" href="index.html">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 16px;">
+                    <div class="logo-wrapper">
+                        <div class="logo"></div>
+                    </div>
+                    <span class="brand-text">Jorwen.Liu</span>
+                </a>
+            </div>
+
+            <div class="nav-menu">
+                <a href="jianjie.html" style="text-decoration: none;"><div class="nav-item" data-lang-key="nav-about">个人</div></a>
+                <a href="zuopin.html" style="text-decoration: none;"><div class="nav-item" data-lang-key="nav-works">作品</div></a>
+                <div class="lang-switch">
+                <span class="lang-label">中</span>
+                <div class="lang-switch-track" id="lang-track">
+                    <div class="lang-switch-thumb"></div>
+                </div>
+                <span class="lang-label">EN</span>
+            </div>
+            </div>
+        </nav>
+    <div class="background-image">
+        <!-- 筛选区域 -->
+        <div class="filters-container">
+            <button class="filter-button active" data-filter="all" data-value="全部" data-lang-key="filter-all">全部</button>
+            <button class="filter-button" data-filter="platform" data-value="移动端" data-lang-key="filter-mobile">移动端</button>
+            <button class="filter-button" data-filter="platform" data-value="PC">PC</button>
+            <button class="filter-button" data-filter="platform" data-value="大屏" data-lang-key="filter-large">大屏</button>
+            <button class="filter-button" data-filter="type" data-value="平面设计" data-lang-key="filter-graphic">平面设计</button>
+            <button class="filter-button" data-filter="platform" data-value="其他" data-lang-key="filter-other">其他</button>
+        </div>
+
+        <!-- 作品展示区域 -->
+        <div class="works-container">
+            <!-- APP类作品 -->
+            <a href="works/zijin.html" class="work-item" data-platform="移动端" data-type="UI">
+                <div class="work-image">
+                    <img src="assets/紫金.jpg" alt="紫金商业">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-zijin">紫金商业</h3>
+                    <p class="work-category" data-lang-key="category-app">UI-APP界面</p>
+                    <span class="work-status" data-lang-key="status-completed">已完成</span>
+                </div>
+            </a>
+            <a href="works/luhang.html" class="work-item" data-platform="移动端" data-type="UI">
+                <div class="work-image">
+                    <img src="assets/路航.jpg" alt="路航">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-luhang">路航</h3>
+                    <p class="work-category" data-lang-key="category-app">UI-APP界面</p>
+                    <span class="work-status" data-lang-key="status-completed">已完成</span>
+                </div>
+            </a>
+            <a href="works/wooftle.html" class="work-item" data-platform="移动端" data-type="UI">
+                <div class="work-image">
+                    <img src="assets/华夫饼.jpg" alt="wooftle华夫饼">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-wooftle">wooftle华夫饼</h3>
+                    <p class="work-category" data-lang-key="category-app">UI-APP界面</p>
+                    <span class="work-status" data-lang-key="status-completed">已完成</span>
+                </div>
+            </a>
+            <a href="works/adidas.html" class="work-item" data-platform="移动端" data-type="UI">
+                <div class="work-image">
+                    <img src="assets/阿迪达斯.png" alt="Adidas十二生肖活动">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-adidas">Adidas十二生肖活动</h3>
+                    <p class="work-category" data-lang-key="category-app">UI-APP界面</p>
+                    <span class="work-status" data-lang-key="status-completed">已完成</span>
+                </div>
+            </a>
+
+            <!-- WEB类作品 -->
+            <a href="works/baidu.html" class="work-item" data-platform="PC" data-type="UX">
+                <div class="work-image">
+                    <img src="assets/华中师范.jpg" alt="百度&华中师范AI机器人">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-baidu">百度&华中师范Ai机器人</h3>
+                    <p class="work-category" data-lang-key="category-web">UI/UX-web界面</p>
+                    <span class="work-status" data-lang-key="status-developing">开发中</span>
+                </div>
+            </a>
+            <a href="works/keyy.html" class="work-item" data-platform="PC" data-type="UI">
+                <div class="work-image">
+                    <img src="assets/社交平台.jpg" alt="KEYY 社交平台">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-keyy">KEYY 社交平台</h3>
+                    <p class="work-category" data-lang-key="category-web">UI-WEB界面</p>
+                    <span class="work-status" data-lang-key="status-completed">已完成</span>
+                </div>
+            </a>
+            <a href="works/software.html" class="work-item" data-platform="PC" data-type="UI">
+                <div class="work-image">
+                    <img src="assets/软件园.jpg" alt="软件园">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-software">软件园</h3>
+                    <p class="work-category" data-lang-key="category-web">UI-WEB界面</p>
+                    <span class="work-status" data-lang-key="status-completed">已完成</span>
+                </div>
+            </a>
+
+            <!-- 大屏类作品 -->
+            <a href="works/construction.html" class="work-item" data-platform="大屏" data-type="UX">
+                <div class="work-image">
+                    <img src="assets/工地.jpg" alt="工地监控-大屏可视化">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-construction">工地监控-大屏可视化</h3>
+                    <p class="work-category" data-lang-key="category-large">UX-大屏可视化</p>
+                    <span class="work-status" data-lang-key="status-completed">已完成</span>
+                </div>
+            </a>
+            <a href="works/tech-park.html" class="work-item" data-platform="大屏" data-type="UI">
+                <div class="work-image">
+                    <img src="assets/科技园区.jpg" alt="科技园区">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-techpark">科技园区</h3>
+                    <p class="work-category" data-lang-key="category-large">UI-大屏可视化</p>
+                    <span class="work-status" data-lang-key="status-completed">已完成</span>
+                </div>
+            </a>
+
+            <!-- 其他类作品 -->
+            <a href="works/design.html" class="work-item" data-platform="其他" data-type="平面设计">
+                <div class="work-image">
+                    <img src="assets/平面设计.jpg" alt="平面设计">
+                </div>
+                <div class="work-info">
+                    <h3 class="work-title" data-lang-key="work-graphic">平面设计</h3>
+                    <p class="work-category" data-lang-key="category-graphic">平面设计</p>
+                    <span class="work-status" data-lang-key="status-completed">已完成</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 粒子背景动画
+        (() => {
+            const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
+            const canvas = document.querySelector('#home-field');
+            const ctx = canvas.getContext('2d');
+            let w, h, points = [];
+            const resize = () => {
+                w = canvas.width = innerWidth * devicePixelRatio;
+                h = canvas.height = innerHeight * devicePixelRatio;
+                ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+                points = Array.from({ length: Math.min(70, Math.floor(innerWidth / 20)) }, () => ({
+                    x: Math.random() * innerWidth,
+                    y: Math.random() * innerHeight,
+                    vx: (Math.random() - .5) * .22,
+                    vy: (Math.random() - .5) * .22
+                }));
+            };
+            const draw = () => {
+                ctx.clearRect(0, 0, innerWidth, innerHeight);
+                points.forEach((p, i) => {
+                    p.x = (p.x + p.vx + innerWidth) % innerWidth;
+                    p.y = (p.y + p.vy + innerHeight) % innerHeight;
+                    ctx.fillStyle = 'rgba(179, 252, 230, .5)';
+                    ctx.fillRect(p.x, p.y, 1.1, 1.1);
+                    for (let j = i + 1; j < points.length; j++) {
+                        const q = points[j], d = Math.hypot(p.x - q.x, p.y - q.y);
+                        if (d < 120) {
+                            ctx.strokeStyle = `rgba(179, 252, 230, ${(1 - d / 120) * .055})`;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(q.x, q.y);
+                            ctx.stroke();
+                        }
+                    }
+                });
+                if (!RM) requestAnimationFrame(draw);
+            };
+            resize();
+            draw();
+            addEventListener('resize', resize);
+        })();
+
+        // 筛选功能
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const workItems = document.querySelectorAll('.work-item');
+        let activeFilter = { filter: 'all', value: '全部' };
+
+        function filterWorks() {
+            workItems.forEach(item => {
+                if (!activeFilter || activeFilter.filter === 'all') {
+                    item.style.display = 'flex';
+                    return;
+                }
+
+                const platformMatch = activeFilter.filter === 'platform' && item.dataset.platform === activeFilter.value;
+                const typeMatch = activeFilter.filter === 'type' && item.dataset.type === activeFilter.value;
+                item.style.display = platformMatch || typeMatch ? 'flex' : 'none';
+            });
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                const value = button.dataset.value;
+                const isActive = button.classList.contains('active');
+
+                if (isActive) {
+                    button.classList.remove('active');
+                    activeFilter = null;
+                } else {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    activeFilter = { filter, value };
+                }
+
+                filterWorks();
+            });
+        });
+    </script>
+<script src="assets/finesse.js"></script>
+<script src="assets/lang.js"></script></body>
+</html>

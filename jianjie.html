@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘嘉雯 - 求职作品集</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="assets/finesse.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: #111111;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) scale(0.8);
+            }
+            60% {
+                opacity: 0.8;
+                transform: translateY(-10px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            50% { opacity: 0.5; transform: scale(1.02); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-150px) rotate(-10deg) scale(0.8);
+            }
+            60% {
+                opacity: 0.9;
+                transform: translateX(10px) rotate(2deg) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg) scale(1);
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(150px) rotate(10deg) scale(0.8);
+            }
+            60% {
+                opacity: 0.9;
+                transform: translateX(-10px) rotate(-2deg) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg) scale(1);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 0.4;
+            }
+            100% {
+                transform: scale(6);
+                opacity: 0;
+            }
+        }
+
+        @keyframes softRipple {
+            0% {
+                transform: scale(0);
+                opacity: 0.25;
+            }
+            100% {
+                transform: scale(8);
+                opacity: 0;
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .delay-100 { animation-delay: 0.15s; }
+        .delay-200 { animation-delay: 0.3s; }
+        .delay-300 { animation-delay: 0.45s; }
+        .delay-400 { animation-delay: 0.6s; }
+        .delay-500 { animation-delay: 0.75s; }
+        .delay-600 { animation-delay: 0.9s; }
+        .delay-700 { animation-delay: 1.05s; }
+        .delay-800 { animation-delay: 1.2s; }
+
+        .ripple-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(179, 252, 230, 0.3), rgba(243, 174, 228, 0.2));
+            pointer-events: none;
+            animation: softRipple 1s ease-out forwards;
+        }
+
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 24px;
+            color: #B3FCE6;
+            opacity: 0.7;
+            animation: fadeOut 1s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 0.7; transform: translate(0, 0) scale(1); }
+            100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
+        }
+
+        .border-glow-card {
+            --glow-left: 0;
+            --glow-right: 0;
+            --glow-top: 0;
+            --glow-bottom: 0;
+            
+            position: relative;
+            border-radius: 8px;
+            isolation: isolate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(179, 252, 230, 0.1);
+            background: rgba(20, 20, 20, 0.8);
+            overflow: visible;
+            transition: border-color 0.3s ease;
+        }
+
+        .border-glow-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1px solid transparent;
+            background: linear-gradient(90deg, rgba(179, 252, 230, var(--glow-left)) 0%, rgba(243, 174, 228, var(--glow-top)) 25%, rgba(243, 174, 228, var(--glow-right)) 50%, rgba(179, 252, 230, var(--glow-bottom)) 75%, rgba(179, 252, 230, var(--glow-left)) 100%) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+            background-size: 200% 100%;
+        }
+
+        .border-glow-card:hover::before {
+            opacity: 1;
+            animation: borderFlow 2s linear infinite;
+        }
+
+        @keyframes borderFlow {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .border-glow-card:hover {
+            border-color: rgba(179, 252, 230, 0.3);
+        }
+
+        .border-glow-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: visible;
+            z-index: 2;
+            width: 100%;
+            padding: 8px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            height: 60px;
+            background: #1e1e1eb3;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(85px);
+            z-index: 1000;
+        }
+
+        .brand-box {
+            position: absolute;
+            left: 5%;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-wrapper {
+            border: 2px solid #B3FCE6B3;
+            border-radius: 8px;
+            padding: 2px;
+        }
+
+        .logo {
+            display: block;
+            width: 36px;
+            height: 36px;
+            background: url('assets/头像.jpg') center/cover;
+            border-radius: 4px;
+        }
+
+        .brand-text {
+            font-family: Agency FB;
+            font-size: 20px;
+            font-weight: 600;
+            color: #B3FCE6;
+        }
+
+        .nav-menu {
+            position: absolute;
+            right: 5%;
+            display: flex;
+            gap: 100px;
+            font-family: Alibaba PuHuiTi 3.0;
+        }
+
+        .nav-item {
+            position: relative;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #B3FCE6;
+            transition: width 0.3s;
+        }
+
+        .nav-item:hover::after,
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        .nav-item:hover {
+            color: #B3FCE6;
+        }
+        .lang-switch {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            padding: 8px 0;
+        }
+        .lang-switch-track {
+            position: relative;
+            width: 60px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 13px;
+            transition: background 0.3s;
+            border: 1px solid rgba(179, 252, 230, 0.3);
+        }
+        .lang-switch-track:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .lang-switch-thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        .lang-switch-track.active .lang-switch-thumb {
+            transform: translateX(34px);
+            background: #B3FCE6;
+        }
+        .lang-switch-track.active {
+            background: rgba(179, 252, 230, 0.2);
+        }
+        .lang-label {
+            font-size: 12px;
+            font-weight: 400;
+            color: #888;
+            transition: color 0.3s;
+            min-width: 24px;
+        }
+        .lang-switch:hover .lang-label {
+            color: #B3FCE6;
+        }
+
+        .main-container {
+            display: flex;
+            padding: 60px 80px 60px 80px;
+            gap: 120px;
+            min-height: calc(100vh - 60px);
+            background: #111111;
+        }
+
+        .left-section {
+            flex: 0 0 380px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-section {
+            width: 57vw;
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-title {
+            font-family: Agency FB;
+            font-size: 64px;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .section-subtitle {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 14px;
+            font-weight: 400;
+            color: #B3FCE6;
+            margin-bottom: 35px;
+        }
+
+        .avatar-container {
+            width: 100%;
+            height: 449px;
+            margin-bottom: 100px;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .avatar-container.active {
+            transform: scale(1.05);
+        }
+
+        .avatar-image {
+            width: 100%;
+            object-fit: contain;
+            background: #1a1a1a;
+        }
+
+        .name-container {
+            margin-bottom: 35px;
+        }
+
+        .name-cn {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 28px;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .name-en {
+            font-family: Agency FB;
+            font-size: 24px;
+            font-weight: 400;
+            color: #B3FCE6;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .info-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .info-label {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 14px;
+            font-weight: 300;
+            color: #B3FCE6;
+            width: 60px;
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 14px;
+            font-weight: 300;
+            color: #FFFFFF;
+        }
+
+        .download-btn {
+            width: 100%;
+            height: 44px;
+            background: transparent;
+            border: 1px solid #B3FCE6;
+            border-radius: 4px;
+            color: #B3FCE6;
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #B3FCE6;
+            color: #111111;
+        }
+
+        .qr-container {
+            text-align: center;
+            padding: 16px;
+        }
+
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 8px;
+            margin-bottom: 12px;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .qr-text {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 12px;
+            font-weight: 400;
+            color: #ffffff;
+        }
+
+        .experience-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 80px;
+            background-image: url('assets/img/标题背景.png');
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            padding: 12px 0;
+            min-height: 50px;
+        }
+
+        .experience-title-text {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 20px;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .experience-title-en {
+            font-family: Agency FB;
+            font-size: 14px;
+            font-weight: 400;
+            color: #B3FCE6;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            position: relative;
+        }
+
+        .timeline-dot {
+            flex: 0 0 8px;
+            height: 8px;
+            background: #B3FCE6;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            margin-top: 6px;
+        }
+
+        .timeline-connector {
+            position: absolute;
+            left: 3px;
+            top: 14px;
+            bottom: -24px;
+            width: 2px;
+            background: #212121;
+            z-index: 0;
+        }
+
+        .timeline-item:last-child .timeline-connector {
+            display: none;
+        }
+
+        .timeline-date {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 14px;
+            font-weight: 400;
+            color: #ffffff;
+            flex: 0 0 140px;
+            margin-top: 4px;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-bottom: 24px;
+        }
+
+        .timeline-company {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .timeline-position {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 14px;
+            font-weight: 400;
+            color: #B3FCE6;
+            margin-bottom: 12px;
+        }
+
+        .timeline-description {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 13px;
+            font-weight: 400;
+            color: #999999;
+            line-height: 1.8;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .timeline-description li {
+            margin-bottom: 8px;
+        }
+
+        .skills-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 80px;
+            margin-top:90px;
+            background-image: url('assets/img/标题背景.png');
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            padding: 12px 0;
+            min-height: 50px;
+        }
+
+        .skills-title-text {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 20px;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .skills-title-en {
+            font-family: Agency FB;
+            font-size: 14px;
+            font-weight: 400;
+            color: #B3FCE6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px 16px;
+            padding: 16px;
+            width: 100%;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .skill-item.active {
+            transform: scale(1.05);
+        }
+
+        .skill-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skill-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .skill-name {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 13px;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        .skill-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #333333;
+            transition: background 0.3s;
+        }
+
+        .dot.filled {
+            background: #B3FCE6;
+        }
+
+        .skill-category {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+        }
+
+        .skill-category-name {
+            font-family: Alibaba PuHuiTi 3.0;
+            font-size: 14px;
+            font-weight: 400;
+            color: #B3FCE6;
+        }
+
+        @media (max-width: 1200px) {
+            .main-container {
+                padding: 40px 40px;
+                gap: 60px;
+            }
+
+            .left-section {
+                flex: 0 0 320px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+
+            .left-section {
+                flex: none;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .right-section {
+                width: 100%;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-menu {
+                gap: 40px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .avatar-container {
+                height: 337px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .nav-item {
+                font-size: 14px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .name-cn {
+                font-size: 24px;
+            }
+
+            .name-en {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas class="side-rays-canvas" aria-hidden="true"></canvas>
+    <nav>
+        <div class="brand-box" href="index.html">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 16px;">
+                <div class="logo-wrapper">
+                    <div class="logo"></div>
+                </div>
+                <span class="brand-text">Jorwen.Liu</span>
+            </a>
+        </div>
+
+        <div class="nav-menu">
+            <a href="jianjie.html" style="text-decoration: none;">
+                <div class="nav-item active" data-lang-key="nav-about">个人</div>
+            </a>
+            <a href="zuopin.html" style="text-decoration: none;">
+                <div class="nav-item" data-lang-key="nav-works">作品</div>
+            </a>
+            <div class="lang-switch">
+                <span class="lang-label">中</span>
+                <div class="lang-switch-track" id="lang-track">
+                    <div class="lang-switch-thumb"></div>
+                </div>
+                <span class="lang-label">EN</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="left-section">
+            <h2 class="section-title animate-slideInLeft">ABOUT ME.</h2>
+            <p class="section-subtitle animate-slideInLeft delay-100" data-lang-key="about-subtitle">个人介绍</p>
+
+            <div class="avatar-container animate-slideInLeft delay-200">
+                <img src="assets/img/证件照.jpg" alt="证件照" class="avatar-image">
+            </div>
+
+            <div class="name-container animate-slideInLeft delay-300">
+                <div class="name-cn">刘嘉雯</div>
+                <div class="name-en">Jorwen Liu</div>
+            </div>
+
+            <div class="info-list animate-slideInLeft delay-400">
+                <div class="info-item animate-fadeInUp">
+                    <div class="info-icon"><img src="assets/img/年龄.png" alt="年龄"></div>
+                    <span class="info-label" data-lang-key="info-age">年龄</span>
+                    <span class="info-value" id="age-value">26岁</span>
+                </div>
+                <div class="info-item animate-fadeInUp delay-100">
+                    <div class="info-icon"><img src="assets/img/意向职位.png" alt="意向职位"></div>
+                    <span class="info-label" data-lang-key="info-position">意向职位</span>
+                    <span class="info-value">UI/UX/UE Designer</span>
+                </div>
+                <div class="info-item animate-fadeInUp delay-200">
+                    <div class="info-icon"><img src="assets/img/工作年限.png" alt="工作年限"></div>
+                    <span class="info-label" data-lang-key="info-experience">工作年限</span>
+                    <span class="info-value" id="experience-value">5年+</span>
+                </div>
+                <div class="info-item animate-fadeInUp delay-300">
+                    <div class="info-icon"><img src="assets/img/邮箱联系.png" alt="邮箱联系"></div>
+                    <span class="info-label" data-lang-key="info-email">邮箱联系</span>
+                    <span class="info-value">1476388021@qq.com</span>
+                </div>
+                <div class="info-item animate-fadeInUp delay-400">
+                    <div class="info-icon"><img src="assets/img/电话联系.png" alt="电话联系"></div>
+                    <span class="info-label" data-lang-key="info-phone">电话联系</span>
+                    <span class="info-value">13390783093</span>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 60px;">
+                <div class="animate-slideInLeft delay-500" style="flex: 1;">
+                    <div class="border-glow-inner">
+                        <button class="download-btn ripple-effect" data-lang-key="download-resume">下载简历</button>
+                    </div>
+                </div>
+                <div class="animate-slideInLeft delay-600" style="flex: 1;">
+                    <div class="border-glow-inner">
+                        <button class="download-btn ripple-effect" data-lang-key="download-portfolio">下载作品集PDF</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-glow-card qr-border-glow animate-slideInLeft delay-600">
+                <div class="border-glow-inner">
+                    <div class="qr-container">
+                        <div class="qr-code">
+                            <img src="assets/img/微信二维码.jpg" alt="微信二维码">
+                        </div>
+                        <div class="qr-text" data-lang-key="qr-text">微信扫一扫联系我</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="experience-title animate-slideInRight delay-300">
+                <span class="experience-title-text" data-lang-key="experience-title">工作经历</span>
+                <span class="experience-title-en">Professional Experience</span>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item animate-slideInRight delay-400">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-date">2023.08 - 2021.10</div>
+                    <div class="timeline-content">
+                        <div class="timeline-company" data-lang-key="company-1">南京爱自游网络科技有限公司</div>
+                        <div class="timeline-position" data-lang-key="timeline-position">UI/UX设计 | 互联网</div>
+                        <ul class="timeline-description">
+                            <li data-lang-key="exp-desc-1-1">根据主要原型图结合项目背景、使用人群、产品定位、竞品分析来设计大于两种的产品风格提供给甲方选择，确定风格后着手设计全部设计图，并将代码后贴入设计稿方便开发同事提高开发效率，缩短项目时间。</li>
+                            <li data-lang-key="exp-desc-1-2">根据甲方要求做相应产品的交互内容，生成动效提供给甲方预览产品，甲方确认后由开发部同事开发。</li>
+                            <li data-lang-key="exp-desc-1-3">陪同产品参加需求会议，与甲方直接沟通设计需求及细节，部分原型图、全部设计图，后期根据项目需求配合软件测试同事参与部分界面还原测试。</li>
+                            <li data-lang-key="exp-desc-1-4">根据领导要求设计其他如logo、banner等。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-slideInRight delay-500">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-date">2023.08 - 2021.10</div>
+                    <div class="timeline-content">
+                        <div class="timeline-company" data-lang-key="company-1">南京爱自游网络科技有限公司</div>
+                        <div class="timeline-position" data-lang-key="timeline-position">UI/UX设计 | 互联网</div>
+                        <ul class="timeline-description">
+                            <li data-lang-key="exp-desc-1-1">根据主要原型图结合项目背景、使用人群、产品定位、竞品分析来设计大于两种的产品风格提供给甲方选择，确定风格后着手设计全部设计图，并将代码后贴入设计稿方便开发同事提高开发效率，缩短项目时间。</li>
+                            <li data-lang-key="exp-desc-1-2">根据甲方要求做相应产品的交互内容，生成动效提供给甲方预览产品，甲方确认后由开发部同事开发。</li>
+                            <li data-lang-key="exp-desc-1-3">陪同产品参加需求会议，与甲方直接沟通设计需求及细节，部分原型图、全部设计图，后期根据项目需求配合软件测试同事参与部分界面还原测试。</li>
+                            <li data-lang-key="exp-desc-1-4">根据领导要求设计其他如logo、banner等。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-slideInRight delay-600">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023.08 - 2021.10</div>
+                    <div class="timeline-content">
+                        <div class="timeline-company" data-lang-key="company-1">南京爱自游网络科技有限公司</div>
+                        <div class="timeline-position" data-lang-key="timeline-position">UI/UX设计 | 互联网</div>
+                        <ul class="timeline-description">
+                            <li data-lang-key="exp-desc-1-1">根据主要原型图结合项目背景、使用人群、产品定位、竞品分析来设计大于两种的产品风格提供给甲方选择，确定风格后着手设计全部设计图，并将代码后贴入设计稿方便开发同事提高开发效率，缩短项目时间。</li>
+                            <li data-lang-key="exp-desc-1-2">根据甲方要求做相应产品的交互内容，生成动效提供给甲方预览产品，甲方确认后由开发部同事开发。</li>
+                            <li data-lang-key="exp-desc-1-3">陪同产品参加需求会议，与甲方直接沟通设计需求及细节，部分原型图、全部设计图，后期根据项目需求配合软件测试同事参与部分界面还原测试。</li>
+                            <li data-lang-key="exp-desc-1-4">根据领导要求设计其他如logo、banner等。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-title animate-slideInRight delay-700">
+                <span class="skills-title-text" data-lang-key="skills-title">专业技能</span>
+                <span class="skills-title-en">Technical Skills</span>
+            </div>
+
+            <div class="border-glow-card skills-border-glow animate-slideInRight delay-800">
+                <div class="border-glow-inner">
+                    <div class="skills-grid">
+                        <div class="skill-item animate-fadeInUp">
+                            <div class="skill-icon"><img src="assets/img/Figma.png" alt="Figma"></div>
+                            <span class="skill-name">Figma</span>
+                        </div>
+                <div class="skill-item animate-fadeInUp delay-100">
+                    <div class="skill-icon"><img src="assets/img/Axure.png" alt="Axure"></div>
+                    <span class="skill-name">Axure</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-200">
+                    <div class="skill-icon"><img src="assets/img/Blender.png" alt="Blender"></div>
+                    <span class="skill-name">Blender</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-300">
+                    <span class="skill-name" data-lang-key="skill-ui-design">界面设计</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                    </div>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-400">
+                    <div class="skill-icon"><img src="assets/img/Sketch.png" alt="Sketch"></div>
+                    <span class="skill-name">Sketch</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-500">
+                    <div class="skill-icon"><img src="assets/img/摹客rp.png" alt="摹客rp"></div>
+                    <span class="skill-name">摹客rp</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-600">
+                    <div class="skill-icon"><img src="assets/img/剪映.png" alt="剪映"></div>
+                    <span class="skill-name">剪映</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-700">
+                    <span class="skill-name" data-lang-key="skill-ui-interaction">界面交互</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                    </div>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-800">
+                    <div class="skill-icon"><img src="assets/img/Adobe Xd.png" alt="Adobe Xd"></div>
+                    <span class="skill-name">Adobe Xd</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-900">
+                    <div class="skill-icon"><img src="assets/img/Adobe Ps.png" alt="Adobe Ps"></div>
+                    <span class="skill-name">Adobe Ps</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1000">
+                    <div class="skill-icon"><img src="assets/img/Adobe Ae.png" alt="Adobe Ae"></div>
+                    <span class="skill-name">Adobe Ae</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1100">
+                    <span class="skill-name" data-lang-key="skill-video-edit">视频剪辑</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1200">
+                    <div class="skill-icon"><img src="assets/img/Mastergo.png" alt="Mastergo"></div>
+                    <span class="skill-name">Mastergo</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1300">
+                    <div class="skill-icon"><img src="assets/img/Adobe Ai.png" alt="Adobe Ai"></div>
+                    <span class="skill-name">Adobe Ai</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1400">
+                    <div class="skill-icon"><img src="assets/img/Adobe Pr.png" alt="Adobe Pr"></div>
+                    <span class="skill-name">Adobe Pr</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1500">
+                    <span class="skill-name" data-lang-key="skill-graphic-design">平面设计</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                    </div>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1600">
+                    <div class="skill-icon"><img src="assets/img/摹客.png" alt="摹客"></div>
+                    <span class="skill-name">摹客</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1700">
+                    <div class="skill-icon"><img src="assets/img/Spline.png" alt="Spline"></div>
+                    <span class="skill-name">Spline</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1800">
+                    <div class="skill-icon"><img src="assets/img/等等.png" alt="..."></div>
+                    <span class="skill-name">...</span>
+                </div>
+                <div class="skill-item animate-fadeInUp delay-1900">
+                    <span class="skill-name" data-lang-key="skill-coding">代码能力</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var rippleElements = document.querySelectorAll('.ripple-effect');
+            
+            rippleElements.forEach(function(element) {
+                element.addEventListener('click', function(e) {
+                    var ripple = document.createElement('span');
+                    ripple.className = 'ripple';
+                    
+                    var rect = element.getBoundingClientRect();
+                    var size = Math.max(rect.width, rect.height);
+                    var x = e.clientX - rect.left - size / 2;
+                    var y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    
+                    element.appendChild(ripple);
+                    
+                    setTimeout(function() {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            var currentYear = new Date().getFullYear();
+            var birthYear = 2000;
+            var startWorkYear = 2021;
+            
+            var age = currentYear - birthYear;
+            var experience = currentYear - startWorkYear;
+            
+            var ageEl = document.getElementById('age-value');
+            var experienceEl = document.getElementById('experience-value');
+            
+            if (ageEl) ageEl.textContent = age + '岁';
+            if (experienceEl) experienceEl.textContent = experience + '年+';
+            
+            if (typeof updateDynamicValues === 'function') {
+                var savedLang = localStorage.getItem('portfolio-lang') || 'zh';
+                updateDynamicValues(savedLang);
+            }
+            
+            var body = document.body;
+            var chars = ['✦', '●', '◆', '✧', '◈', '▣', '▪'];
+            
+            var glowCards = document.querySelectorAll('.border-glow-card');
+            
+            glowCards.forEach(function(card) {
+                card.addEventListener('mousemove', function(e) {
+                    var rect = card.getBoundingClientRect();
+                    var x = e.clientX - rect.left;
+                    var y = e.clientY - rect.top;
+                    var width = rect.width;
+                    var height = rect.height;
+                    
+                    var glowLeft = Math.max(0, Math.min(1, (1 - x / width) * 1.5));
+                    var glowRight = Math.max(0, Math.min(1, (x / width) * 1.5));
+                    var glowTop = Math.max(0, Math.min(1, (1 - y / height) * 1.5));
+                    var glowBottom = Math.max(0, Math.min(1, (y / height) * 1.5));
+                    
+                    card.style.setProperty('--glow-left', glowLeft.toFixed(2));
+                    card.style.setProperty('--glow-right', glowRight.toFixed(2));
+                    card.style.setProperty('--glow-top', glowTop.toFixed(2));
+                    card.style.setProperty('--glow-bottom', glowBottom.toFixed(2));
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    card.style.setProperty('--glow-left', '0');
+                    card.style.setProperty('--glow-right', '0');
+                    card.style.setProperty('--glow-top', '0');
+                    card.style.setProperty('--glow-bottom', '0');
+                });
+            });
+            
+            var avatarContainer = document.querySelector('.avatar-container');
+            
+            avatarContainer.addEventListener('animationend', function(e) {
+                if (e.animationName === 'slideInLeft') {
+                    avatarContainer.classList.remove('animate-slideInLeft', 'delay-200');
+                }
+            });
+            
+            avatarContainer.addEventListener('mouseenter', function() {
+                avatarContainer.classList.add('active');
+            });
+            
+            avatarContainer.addEventListener('mouseleave', function() {
+                avatarContainer.classList.remove('active');
+            });
+            
+            var skillItems = document.querySelectorAll('.skill-item');
+            
+            skillItems.forEach(function(item) {
+                item.addEventListener('animationend', function() {
+                    item.classList.remove('animate-fadeInUp');
+                    var delayClasses = ['delay-100', 'delay-200', 'delay-300', 'delay-400', 'delay-500', 'delay-600', 'delay-700', 'delay-800', 'delay-900', 'delay-1000', 'delay-1100', 'delay-1200', 'delay-1300', 'delay-1400', 'delay-1500', 'delay-1600', 'delay-1700', 'delay-1800', 'delay-1900'];
+                    delayClasses.forEach(function(cls) {
+                        item.classList.remove(cls);
+                    });
+                });
+                
+                item.addEventListener('mouseenter', function() {
+                    item.classList.add('active');
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    item.classList.remove('active');
+                });
+            });
+            
+            body.addEventListener('mousemove', function(e) {
+                var el = document.createElement('span');
+                el.className = 'particle';
+                el.textContent = chars[Math.floor(Math.random() * chars.length)];
+                el.style.left = e.clientX + 'px';
+                el.style.top = e.clientY + 'px';
+                
+                var tx = (Math.random() - 0.5) * 200;
+                var ty = (Math.random() - 0.5) * 200 - 100;
+                el.style.setProperty('--tx', tx + 'px');
+                el.style.setProperty('--ty', ty + 'px');
+                
+                body.appendChild(el);
+                
+                setTimeout(function() {
+                    el.remove();
+                }, 1000);
+            });
+        });
+    </script>
+<script src="assets/finesse.js"></script>
+<script src="assets/lang.js"></script></body>
+
+</html>
