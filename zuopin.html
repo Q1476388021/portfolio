@@ -536,6 +536,43 @@
                 filterWorks();
             });
         });
+
+        // 筛选栏吸顶处理：解决 sticky 占位导致下方间距变大的问题
+        const filtersEl = document.querySelector('.filters-container');
+        const worksEl = document.querySelector('.works-container');
+        const navEl = document.querySelector('nav');
+        let isFixed = false;
+
+        function handleSticky() {
+            const navHeight = navEl.offsetHeight;
+            const filtersHeight = filtersEl.offsetHeight;
+            // filtersEl.offsetTop 是相对于 offsetParent 的位置，这里取相对文档顶部
+            const filtersTop = filtersEl.getBoundingClientRect().top + window.scrollY;
+
+            if (window.scrollY + navHeight >= filtersTop) {
+                if (!isFixed) {
+                    isFixed = true;
+                    filtersEl.style.position = 'fixed';
+                    filtersEl.style.top = navHeight + 'px';
+                    filtersEl.style.left = '0';
+                    filtersEl.style.width = '100%';
+                    worksEl.style.marginTop = filtersHeight + 'px';
+                }
+            } else {
+                if (isFixed) {
+                    isFixed = false;
+                    filtersEl.style.position = 'sticky';
+                    filtersEl.style.top = navHeight + 'px';
+                    filtersEl.style.left = '';
+                    filtersEl.style.width = '';
+                    worksEl.style.marginTop = '0';
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleSticky, { passive: true });
+        window.addEventListener('resize', handleSticky);
+        handleSticky();
     </script>
 <script src="assets/finesse.js"></script>
 <script src="assets/lang.js"></script></body>
