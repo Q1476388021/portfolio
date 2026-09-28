@@ -19,6 +19,26 @@ const translations = {
         'zh': '查看作品',
         'en': 'View Works'
     },
+    'view-works-1': {
+        'zh': '查',
+        'en': 'V'
+    },
+    'view-works-2': {
+        'zh': '看',
+        'en': 'I'
+    },
+    'view-works-3': {
+        'zh': '作',
+        'en': 'E'
+    },
+    'view-works-4': {
+        'zh': '品',
+        'en': 'W'
+    },
+    'view-works-arrow': {
+        'zh': '↘',
+        'en': '↘'
+    },
     'selected-title': {
         'zh': '作品',
         'en': 'Works'
