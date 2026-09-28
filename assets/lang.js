@@ -108,8 +108,8 @@ const translations = {
         'en': 'Work Experience'
     },
     'company-1': {
-        'zh': '南京爱自游网络科技有限公司',
-        'en': 'Nanjing Aiziyou Network Technology Co., Ltd.'
+        'zh': '南京某网络科技公司',
+        'en': 'Nanjing A Network Technology Co., Ltd.'
     },
     'exp-desc-1-1': {
         'zh': '根据主要原型图结合项目背景、使用人群、产品定位、竞品分析来设计大于两种的产品风格提供给甲方选择，确定风格后着手设计全部设计图，并将代码后贴入设计稿方便开发同事提高开发效率，缩短项目时间。',
