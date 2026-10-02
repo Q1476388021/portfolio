@@ -123,6 +123,34 @@ const translations = {
         'zh': '电话联系',
         'en': 'Phone'
     },
+    'advantages-title': {
+        'zh': '个人优势',
+        'en': 'Personal Advantages'
+    },
+    'adv-1': {
+        'zh': '精通Figma及多款设计软件如Sketch、Adobe系列、MasterGo、Principle、Spline等,具备出色的交互设计能力,熟悉跨平台设计规范,能高效完成设计任务。',
+        'en': 'Proficient in Figma and various design software such as Sketch, Adobe suite, MasterGo, Principle, Spline, etc. Possess excellent interaction design skills, familiar with cross-platform design specifications, and able to complete design tasks efficiently.'
+    },
+    'adv-2': {
+        'zh': '掌握动效设计与3D模型制作技能,丰富产品视觉,有效提升用户使用体验。',
+        'en': 'Skilled in motion design and 3D model creation, enriching product visuals and effectively enhancing user experience.'
+    },
+    'adv-3': {
+        'zh': '拥有丰富的项目实践经验,多个设计作品已成功上线并投入使用。',
+        'en': 'Rich project experience with multiple design works successfully launched and put into use.'
+    },
+    'adv-4': {
+        'zh': '具备基础的编程知识,熟悉CSS、H5及vue等相关语言,熟练运用相关前端代码布局组件,遵循Web开发的盒模型原则,能与开发团队顺畅沟通,促进项目高效协作。',
+        'en': 'Basic programming knowledge, familiar with CSS, HTML5, Vue and related languages. Proficient in front-end code layout components, following Web development box model principles. Able to communicate smoothly with development teams and promote efficient project collaboration.'
+    },
+    'adv-5': {
+        'zh': '具备产品思维,擅长从用户和平台双重角度出发,提出创新而实用的设计方案,具备分析与问题解决能力。',
+        'en': 'Product thinking, skilled at proposing innovative and practical design solutions from both user and platform perspectives, with strong analysis and problem-solving abilities.'
+    },
+    'adv-6': {
+        'zh': '拥有良好的艺术审美,能创造出符合市场与用户需求的高质量视觉内容方案。',
+        'en': 'Good artistic aesthetics, able to create high-quality visual content solutions that meet market and user needs.'
+    },
     'experience-title': {
         'zh': '工作经历',
         'en': 'Work Experience'
