@@ -665,8 +665,8 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-bottom: 80px;
-            margin-top:90px;
+            margin-bottom: 40px;
+            margin-top: 60px;
             background-image: url('assets/img/标题背景.png');
             background-size: auto 100%;
             background-repeat: no-repeat;
@@ -691,8 +691,8 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px 16px;
-            padding: 16px;
+            gap: 20px 16px;
+            padding: 0;
             width: 100%;
         }
 
@@ -703,6 +703,11 @@
 
         .skills-border-glow::before {
             display: none !important;
+        }
+
+        .skills-border-glow .border-glow-inner {
+            padding: 0;
+            align-items: flex-start;
         }
 
         .skill-item {
