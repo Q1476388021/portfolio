@@ -468,6 +468,10 @@
             font-weight: 400;
             cursor: pointer;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
         }
 
         .download-btn:hover {
@@ -916,12 +920,12 @@
             <div style="display: flex; gap: 8px; margin-bottom: 60px;">
                 <div class="animate-slideInLeft delay-500" style="flex: 1;">
                     <div class="border-glow-inner">
-                        <button class="download-btn ripple-effect" data-lang-key="download-resume">下载简历PDF</button>
+                        <a href="assets/Jorwen-UI简历.pdf" download="Jorwen-UI简历.pdf" class="download-btn ripple-effect" data-lang-key="download-resume">下载简历PDF</a>
                     </div>
                 </div>
                 <div class="animate-slideInLeft delay-600" style="flex: 1;">
                     <div class="border-glow-inner">
-                        <button class="download-btn ripple-effect" data-lang-key="download-portfolio">下载作品集PDF</button>
+                        <a href="assets/作品集pdf.pdf" download="作品集pdf.pdf" class="download-btn ripple-effect" data-lang-key="download-portfolio">下载作品集PDF</a>
                     </div>
                 </div>
             </div>
