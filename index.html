@@ -268,9 +268,14 @@
     .round-link span{color:var(--mint);font-size:18px}.round-link:hover{background:var(--mint);color:var(--ink);box-shadow:0 0 50px rgba(179,252,230,.22)}
     .download-btn{height:44px;background:#111a22b8;border:1px solid #B3FCE6;border-radius:4px;color:#B3FCE6;font-family:Alibaba PuHuiTi 3.0;font-size:16px;font-weight:400;cursor:pointer;transition:all 0.3s;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}
     .download-btn:hover{background:#B3FCE6;color:#111111}
-    .view-works-circles{display:flex;gap:12px;align-items:center;margin-left:0!important}
-    .view-circle{width:52px!important;min-width:52px!important;height:52px!important;border-radius:50%!important;font-size:20px!important;padding:0!important;line-height:1;text-decoration:none}
-    .view-circle-arrow{font-size:22px!important}
+    .view-works-circles{display:flex;gap:12px;align-items:center;margin-left:0!important;text-decoration:none;position:relative}
+    .view-circle{width:52px;min-width:52px;height:52px;border-radius:50%;font-size:20px;padding:0;line-height:1;display:flex;align-items:center;justify-content:center;background:#111a22b8;border:1px solid #B3FCE6;color:#B3FCE6;font-family:"Alibaba PuHuiTi 3.0",sans-serif;font-weight:400;transition:all 0.3s;cursor:pointer;user-select:none;position:relative;z-index:1}
+    .view-circle-arrow{font-size:22px}
+    /* 悬浮/点击任意圆，五个圆同时变成悬浮状态 */
+    .view-works-circles:hover .view-circle,.view-works-circles:active .view-circle{background:#B3FCE6;color:#111111}
+    .view-works-circles:active .view-circle{transform:scale(0.94)}
+    .view-works-circles .ripple{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(179,252,230,.35),rgba(243,174,228,.2));pointer-events:none;z-index:0;animation:viewRipple .6s ease-out forwards}
+    @keyframes viewRipple{0%{transform:scale(0);opacity:.4}100%{transform:scale(2);opacity:0}}
     .portrait-stage{position:absolute;z-index:4;right:-3.5%;bottom:-2%;width:min(74vw,1220px);pointer-events:none;transform-origin:65% 70%;will-change:transform}
     .portrait-stage img{display:block;width:100%;height:auto;filter:drop-shadow(0 -14px 50px rgba(243,174,228,.12))}
     .portrait-glow{position:absolute;inset:22% 18% 5%;z-index:-1;background:radial-gradient(circle,rgba(243,174,228,.18),rgba(179,252,230,.07) 40%,transparent 68%);filter:blur(25px)}
@@ -326,13 +331,13 @@
         <h1 id="hero-title"><span class="gradient-word">JORWEN</span><br><span class="gradient-word" data-lang-key="hero-title">个人作品集</span></h1>
         <div class="hero-meta" style="display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:56px!important;margin:52px 0 0 0!important;padding-left:0!important;justify-content:flex-start!important;text-align:left!important">
           <p style="margin:0!important;padding:0!important;text-align:left!important" data-lang-key="hero-desc">Hello！欢迎来到我的个人作品集网站！欢迎交流和合作~</p>
-          <div class="view-works-circles">
-            <a class="download-btn ripple-effect view-circle" href="#selected" data-lang-key="view-works-1">查</a>
-            <a class="download-btn ripple-effect view-circle" href="#selected" data-lang-key="view-works-2">看</a>
-            <a class="download-btn ripple-effect view-circle" href="#selected" data-lang-key="view-works-3">作</a>
-            <a class="download-btn ripple-effect view-circle" href="#selected" data-lang-key="view-works-4">品</a>
-            <a class="download-btn ripple-effect view-circle view-circle-arrow" href="#selected" data-lang-key="view-works-arrow">↘</a>
-          </div>
+          <a class="view-works-circles ripple-effect" href="#selected">
+            <span class="view-circle" data-lang-key="view-works-1">查</span>
+            <span class="view-circle" data-lang-key="view-works-2">看</span>
+            <span class="view-circle" data-lang-key="view-works-3">作</span>
+            <span class="view-circle" data-lang-key="view-works-4">品</span>
+            <span class="view-circle view-circle-arrow" data-lang-key="view-works-arrow">↘</span>
+          </a>
         </div>
       </div>
 
