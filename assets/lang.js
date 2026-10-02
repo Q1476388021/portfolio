@@ -156,24 +156,92 @@ const translations = {
         'en': 'Work Experience'
     },
     'company-1': {
-        'zh': '南京某网络科技公司',
-        'en': 'Nanjing A Network Technology Co., Ltd.'
+        'zh': '南京爱自游网络科技有限公司',
+        'en': 'Nanjing Aiziyou Network Technology Co., Ltd.'
+    },
+    'position-1': {
+        'zh': 'UI设计师',
+        'en': 'UI Designer'
+    },
+    'position-2': {
+        'zh': 'UI设计师',
+        'en': 'UI Designer'
+    },
+    'position-3': {
+        'zh': 'UI设计师',
+        'en': 'UI Designer'
+    },
+    'company-2': {
+        'zh': '成都云鼎智控科技有限公司',
+        'en': 'Chengdu Yunding Zhikong Technology Co., Ltd.'
+    },
+    'company-3': {
+        'zh': '自由接单UI设计师',
+        'en': 'Freelance UI Designer'
     },
     'exp-desc-1-1': {
-        'zh': '根据主要原型图结合项目背景、使用人群、产品定位、竞品分析来设计大于两种的产品风格提供给甲方选择，确定风格后着手设计全部设计图，并将代码后贴入设计稿方便开发同事提高开发效率，缩短项目时间。',
-        'en': 'Design more than two product styles based on main prototypes combined with project background, target users, product positioning, and competitor analysis for clients to choose from. After confirming the style, design all design drawings and paste codes into the design draft to help developers improve efficiency and shorten project time.'
+        'zh': '根据主要原型图结合项目背景、使用人群、产品定位、竞品分析来设计大于两种的产品风格提供给甲方选择，确定风格后着手设计全部设计图，并将代码层级融入设计稿方便开发部同事提高开发效率，缩短项目时间。',
+        'en': 'Design more than two product styles based on main prototypes combined with project background, target users, product positioning, and competitor analysis for clients to choose from. After confirming the style, design all design drawings and integrate code hierarchy into the design draft to help developers improve efficiency and shorten project time.'
     },
     'exp-desc-1-2': {
-        'zh': '根据甲方要求做相应产品的交互内容，生成动效提供给甲方预览产品，甲方确认后由开发部同事开发。',
-        'en': 'Create interactive content according to client requirements, generate animations for client preview, and hand over to the development team after client confirmation.'
+        'zh': '根据甲方要求做相应产品的交互内容，生成链接提供给甲方预览产品，甲方确认后由开发部同事开发。',
+        'en': 'Create corresponding product interaction content according to client requirements, generate links for clients to preview the product, and after confirmation, hand over to the development team for implementation.'
     },
     'exp-desc-1-3': {
-        'zh': '陪同产品参加需求会议，与甲方直接沟通设计需求及细节，部分原型图、全部设计图，后期根据项目需求配合软件测试同事参与部分界面还原测试。',
-        'en': 'Accompany product managers to requirement meetings, communicate design requirements and details directly with clients. Responsible for partial prototypes and all design drawings. Later, cooperate with software testing colleagues to participate in partial interface restoration testing according to project needs.'
+        'zh': '陪同产品参加需求会议，与甲方直接沟通设计需求及细节，画部分原型图、全部设计图，后期根据项目需求配合软件测试同事参与部分界面还原度测试。',
+        'en': 'Accompany the product team in requirement meetings, communicate design needs and details directly with clients, create partial prototypes and complete design drawings, and participate in interface restoration testing with software testing colleagues based on project requirements.'
     },
     'exp-desc-1-4': {
         'zh': '根据领导要求设计其他如logo、banner等。',
-        'en': 'Design other materials such as logos and banners according to leadership requirements.'
+        'en': 'Design other materials such as logos and banners as requested by leadership.'
+    },
+    'exp-desc-2-1': {
+        'zh': '负责对接客户，参加需求讨论会，根据客户需求画高保真原型图。',
+        'en': 'Responsible for client communication, attending requirement discussion meetings, and creating high-fidelity prototypes based on client needs.'
+    },
+    'exp-desc-2-2': {
+        'zh': '根据已确定的原型及同类型产品确定产品风格，完成所有设计图。',
+        'en': 'Determine product style based on confirmed prototypes and similar products, and complete all design drawings.'
+    },
+    'exp-desc-2-3': {
+        'zh': '对接开发，保证产品实现。',
+        'en': 'Coordinate with development team to ensure product implementation.'
+    },
+    'exp-desc-2-4': {
+        'zh': '试用期内三个项目皆获得甲方认同及夸赞，试用期提前转正。',
+        'en': 'All three projects during the probation period received client recognition and praise, leading to early confirmation of employment.'
+    },
+    'exp-desc-2-5': {
+        'zh': '连续三个项目皆获得额外项目奖金。',
+        'en': 'Received additional project bonuses for three consecutive projects.'
+    },
+    'exp-desc-3-1': {
+        'zh': '根据客户需求及项目背景，精确把握使用人群与产品定位，确保设计方案与项目目标高度一致。',
+        'en': 'Based on client requirements and project background, accurately grasp target users and product positioning to ensure design solutions are highly aligned with project goals.'
+    },
+    'exp-desc-3-2': {
+        'zh': '利用主要原型图，全面负责界面设计流程，包括但不限于布局规划、色彩搭配及用户交互体验优化。',
+        'en': 'Using main prototypes, fully responsible for the interface design process, including but not limited to layout planning, color matching, and user interaction experience optimization.'
+    },
+    'exp-desc-3-3': {
+        'zh': '结合midjourney与stablediffusion技术，创新性地设计符合品牌形象的海报与宣传材料。',
+        'en': 'Combining Midjourney and Stable Diffusion technologies, innovatively design posters and promotional materials that align with brand image.'
+    },
+    'exp-desc-3-4': {
+        'zh': '负责公司品牌及产品的视觉形象设计，包括Logo、VI系统等，提升品牌识别度。',
+        'en': 'Responsible for visual identity design of company brand and products, including Logo and VI system, to enhance brand recognition.'
+    },
+    'exp-desc-3-5': {
+        'zh': '与客户紧密沟通，确保设计方案满足其期望，并及时调整以应对反馈。',
+        'en': 'Communicate closely with clients to ensure design solutions meet their expectations and make timely adjustments based on feedback.'
+    },
+    'exp-desc-3-6': {
+        'zh': '定期评估设计效果，结合用户反馈及市场趋势，持续优化产品视觉表现。',
+        'en': 'Regularly evaluate design effectiveness, combine user feedback and market trends to continuously optimize product visual performance.'
+    },
+    'exp-desc-3-7': {
+        'zh': '独立管理多个项目，确保按时交付高质量设计成果，维护客户关系并提升客户满意度。',
+        'en': 'Independently manage multiple projects, ensure timely delivery of high-quality design results, maintain client relationships, and improve client satisfaction.'
     },
     'skills-title': {
         'zh': '专业技能',
