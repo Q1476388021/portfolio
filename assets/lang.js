@@ -12,8 +12,8 @@ const translations = {
         'en': 'Portfolio'
     },
     'hero-desc': {
-        'zh': 'Hello！欢迎来到我的个人作品集网站！欢迎交流和合作~',
-        'en': 'Hello! Welcome to my personal portfolio website! Looking forward to communication and cooperation~'
+        'zh': '刘嘉雯 Jorwen Liu ｜ 5 年 UI/UX 设计师 ｜ 移动端・B 端后台・数据可视化大屏',
+        'en': 'Jorwen Liu | 5 Years UI/UX Designer | Mobile, B-end Dashboard & Data Visualization'
     },
     'view-works': {
         'zh': '查看作品',
