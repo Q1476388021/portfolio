@@ -696,6 +696,15 @@
             width: 100%;
         }
 
+        .skills-border-glow {
+            border: none !important;
+            background: transparent !important;
+        }
+
+        .skills-border-glow::before {
+            display: none !important;
+        }
+
         .skill-item {
             display: flex;
             flex-direction: row;
@@ -704,6 +713,8 @@
             padding: 4px 8px;
             border-radius: 4px;
             cursor: pointer;
+            background: transparent !important;
+            border: none !important;
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
