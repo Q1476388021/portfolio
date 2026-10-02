@@ -1178,25 +1178,6 @@
                     item.classList.remove('active');
                 });
             });
-            
-            body.addEventListener('mousemove', function(e) {
-                var el = document.createElement('span');
-                el.className = 'particle';
-                el.textContent = chars[Math.floor(Math.random() * chars.length)];
-                el.style.left = e.clientX + 'px';
-                el.style.top = e.clientY + 'px';
-                
-                var tx = (Math.random() - 0.5) * 200;
-                var ty = (Math.random() - 0.5) * 200 - 100;
-                el.style.setProperty('--tx', tx + 'px');
-                el.style.setProperty('--ty', ty + 'px');
-                
-                body.appendChild(el);
-                
-                setTimeout(function() {
-                    el.remove();
-                }, 1000);
-            });
         });
     </script>
 <script src="assets/finesse.js"></script>
