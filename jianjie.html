@@ -507,7 +507,7 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-bottom: 40px;
+            margin-bottom: 80px;
             background-image: url('assets/img/标题背景.png');
             background-size: auto 100%;
             background-repeat: no-repeat;
@@ -533,7 +533,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 80px;
+            margin-bottom: 90px;
             font-family: Alibaba PuHuiTi 3.0;
         }
 
@@ -665,8 +665,8 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-bottom: 40px;
-            margin-top: 60px;
+            margin-bottom: 80px;
+            margin-top: 50px;
             background-image: url('assets/img/标题背景.png');
             background-size: auto 100%;
             background-repeat: no-repeat;
@@ -691,23 +691,9 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px 16px;
-            padding: 0;
+            gap: 8px 16px;
+            padding: 16px;
             width: 100%;
-        }
-
-        .skills-border-glow {
-            border: none !important;
-            background: transparent !important;
-        }
-
-        .skills-border-glow::before {
-            display: none !important;
-        }
-
-        .skills-border-glow .border-glow-inner {
-            padding: 0;
-            align-items: flex-start;
         }
 
         .skill-item {
@@ -718,8 +704,6 @@
             padding: 4px 8px;
             border-radius: 4px;
             cursor: pointer;
-            background: transparent !important;
-            border: none !important;
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
