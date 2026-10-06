@@ -280,8 +280,8 @@ const translations = {
         'en': 'Large Screen'
     },
     'filter-graphic': {
-        'zh': '平面设计',
-        'en': 'Graphic'
+        'zh': 'AIGC视觉',
+        'en': 'AIGC Vision'
     },
     'filter-other': {
         'zh': '其他',
@@ -324,8 +324,8 @@ const translations = {
         'en': 'Tech Park'
     },
     'work-graphic': {
-        'zh': '平面设计',
-        'en': 'Graphic Design'
+        'zh': 'AIGC视觉',
+        'en': 'AIGC Vision'
     },
     'category-app': {
         'zh': 'UI-APP界面',
@@ -340,8 +340,8 @@ const translations = {
         'en': 'Large Screen'
     },
     'category-graphic': {
-        'zh': '平面设计',
-        'en': 'Graphic Design'
+        'zh': 'AIGC视觉',
+        'en': 'AIGC Vision'
     },
     'status-completed': {
         'zh': '已完成',

@@ -456,6 +456,15 @@
             color: #FFFFFF;
         }
 
+        .phone-hidden {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .phone-hidden:hover {
+            color: #B3FCE6;
+        }
+
         .download-btn {
             width: 100%;
             height: 44px;
@@ -913,7 +922,7 @@
                 <div class="info-item animate-fadeInUp delay-400">
                     <div class="info-icon"><img src="assets/img/电话联系.png" alt="电话联系"></div>
                     <span class="info-label" data-lang-key="info-phone">电话联系</span>
-                    <span class="info-value">13390783093</span>
+                    <span class="info-value phone-hidden" data-full-phone="13390783093">133****3093</span>
                 </div>
             </div>
 
@@ -1271,6 +1280,13 @@
         });
     </script>
 <script src="assets/finesse.js"></script>
-<script src="assets/lang.js"></script></body>
+<script src="assets/lang.js"></script>
+<script>
+document.querySelectorAll('.phone-hidden').forEach(function(el){
+  var full=el.getAttribute('data-full-phone'),masked=el.textContent;
+  el.addEventListener('mouseenter',function(){el.textContent=full});
+  el.addEventListener('mouseleave',function(){el.textContent=masked});
+});
+</script></body>
 
 </html>
